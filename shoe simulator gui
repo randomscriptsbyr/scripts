@@ -37,7 +37,7 @@ if game.PlaceId == 6961712970 then
     
     local startpos
     
-    Section:NewToggle("Boost & Shoe Autofarm (Both at the same time)", "a mix of boost farm and shoe farm shown below", function(state)
+    Section:NewToggle("Boost & Shoe Autofarm (both at same time)", "a mix of boost farm and shoe farm shown below", function(state)
         if state then
             local boosts = game.Workspace.Boosts
             
