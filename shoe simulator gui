@@ -29,7 +29,7 @@ if game.PlaceId == 6961712970 then
     
     local lp = game.Players.LocalPlayer.Character
     
-    local Window = Library.CreateLib("Shoe Simulator (this took longer than it should have) by rinq#9949", "DarkTheme")
+    local Window = Library.CreateLib("Shoe Simulator (this took longer than it should have)", "DarkTheme")
     
     local Tab = Window:NewTab("Main")
     
