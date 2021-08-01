@@ -1,0 +1,192 @@
+--[[ To make this script work much better, get some pets so that you make more money
+and save up for 10k before getting socks from the sock shop, after getting some
+socks save up for 50k in game money, go to the sock shop, click the right arrow
+twice on the menu and buy that one. I would recommend to repeat this until
+you get either the Happy socks or the Rainbow socks (this will make the script
+MUCH more efficient and will make it extremely fast). Without socks, it will likely
+not work that well and will be extremely slow. Once you get 1 million, you can
+use the Secret Island Teleport and get the pets for 1 million, which will get
+you a lot more money. Once you have good socks and good pets, this script
+can get you a lot of money. If you would like a faster version of this script,
+DM me on discord @rinq#9949. Keep in mind that the other version can be very
+buggy but can also get you a lot of money, and it can get you it fast. --]]
+
+print("UI library by xHeptc at https://xheptcofficial.gitbook.io/kavo-library/")
+print("Everything in this script is made by rinq#9949")
+
+if game.PlaceId == 6961712970 then
+    print("C1")
+    local ohString1 = "500K"
+    game:GetService("ReplicatedStorage").Remote.TwitterCode:FireServer(ohString1)
+    print("C2")
+    local ohString2 = "RELEASE"
+    game:GetService("ReplicatedStorage").Remote.TwitterCode:FireServer(ohString2)
+    print("C3")
+    local ohString3 = "BOOTS"
+    game:GetService("ReplicatedStorage").Remote.TwitterCode:FireServer(ohString3)
+    
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    
+    local lp = game.Players.LocalPlayer.Character
+    
+    local Window = Library.CreateLib("Shoe Simulator (this took longer than it should have)", "DarkTheme")
+    
+    local Tab = Window:NewTab("Main")
+    
+    local Section = Tab:NewSection("Main Farming")
+    
+    local startpos
+    
+    Section:NewToggle("Boost Autofarm", "collects boosts (spawned coins) rapidly", function(state)
+        if state then
+            local boosts = game.Workspace.Boosts
+            
+            startpos = lp.HumanoidRootPart.Position
+            
+            _G.boostfarm = true
+            
+            while _G.boostfarm == true and wait() do
+                for _,v in pairs(boosts:GetChildren()) do
+                    if v.ClassName == "MeshPart" and _G.boostfarm == true then
+                        lp.HumanoidRootPart.CFrame = CFrame.new(v.Position)
+                        wait()
+                    end
+                end
+            end
+        else
+            _G.boostfarm = false
+            wait(0.5)
+            lp.HumanoidRootPart.CFrame = CFrame.new(startpos)
+        end
+    end)
+    
+    Section:NewToggle("Shoe Autofarm", "gets and sells shoes on repeat", function(state)
+        if state then
+            print("Shoe farm enabled!")
+            
+            _G.shoefarm = true
+            
+            local startpos = lp.HumanoidRootPart.Position
+            
+            while _G.shoefarm == true and wait() do
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer()
+                lp.Shoes.PutShoe:FireServer() -- there are so much of these because it makes it much faster for good socks, more than this will probably make it break
+                lp.HumanoidRootPart.CFrame = CFrame.new(startpos)
+                game:GetService("ReplicatedStorage").Remote.Sell:FireServer()
+            end
+        else
+            print("Shoe farm disabled!")
+            _G.shoefarm = false
+        end
+    end)
+    
+    Section:NewButton("Collect All Chests/Islands","collects all chests and/or islands",function()
+        game:GetService("ReplicatedStorage").Remote.Sell:FireServer()
+        print("S1")
+        lp.Shoes.PutShoe:FireServer()
+        print("s1")
+        lp.Shoes.PutShoe:FireServer()
+        print("s2")
+        wait(1)
+        print("i1")
+        lp.HumanoidRootPart.CFrame = CFrame.new(15, 1077, -132)
+        print("t1")
+        wait(1)
+        print("i2")
+        lp.HumanoidRootPart.CFrame = CFrame.new(36, 6050, -124)
+        print("t2")
+        wait(1)
+        print("i3")
+        lp.HumanoidRootPart.CFrame = CFrame.new(235, 26119, -236)
+        print("t3")
+        wait(1)
+        print("i4")
+        lp.HumanoidRootPart.CFrame = CFrame.new(96, 56116, 100)
+        print("t4")
+        wait(1)
+        print("i5")
+        lp.HumanoidRootPart.CFrame = CFrame.new(115, 106110, -238)
+        print("t5")
+    end)
+    
+    local Tab2 = Window:NewTab("Teleports")
+    
+    local IslandTeleport = Tab2:NewSection("Island Teleports")
+    
+    IslandTeleport:NewButton("Secret Island Teleport", "teleports to secret island", function()
+        print("Attempting to teleport to secret island...")
+        lp.HumanoidRootPart.CFrame = CFrame.new(-1110, 148, 54)
+        print("Teleported to secret island!")
+    end)
+    
+    IslandTeleport:NewButton("Candy Island Teleport","teleports to candy island",function()
+        print("Attempting to teleport to candy island...")
+        lp.HumanoidRootPart.CFrame = CFrame.new(15, 1077, -132)
+        print("Teleported to candy island!")
+    end)
+    
+    IslandTeleport:NewButton("Steampunk Island Teleport","teleports to steampunk island",function()
+        print("Attempting to teleport to steampunk island...")
+        lp.HumanoidRootPart.CFrame = CFrame.new(36, 6050, -124)
+        print("Teleported to steampunk island!")
+    end)
+    
+    IslandTeleport:NewButton("Pirate Island Teleport","teleports to pirate island",function()
+        print("Attempting to teleport to pirate island...")
+        lp.HumanoidRootPart.CFrame = CFrame.new(235, 26119, -236)
+        print("Teleported to pirate island!")
+    end)
+    
+    IslandTeleport:NewButton("Tech Island Teleport","teleports to tech island",function()
+        print("Attempting to teleport to tech island...")
+        lp.HumanoidRootPart.CFrame = CFrame.new(96, 56116, 100)
+        print("Teleported to tech island!")
+    end)
+    
+    IslandTeleport:NewButton("Space Island Teleport","teleports to space island",function()
+        print("Attempting to teleport to space island...")
+        lp.HumanoidRootPart.CFrame = CFrame.new(115, 106110, -238)
+        print("Teleported to space island!")
+    end)
+    
+    local ShopTeleport = Tab2:NewSection("Shop Teleports")
+    
+    ShopTeleport:NewButton("Socks Shop","teleports to sock shop",function()
+        game:GetService("ReplicatedStorage").Remote.Sell:FireServer()
+        local startpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        print("SP")
+        lp.HumanoidRootPart.CFrame = CFrame.new(-37, 139, 43)
+        print("t1")
+        wait(0.1)
+        lp.HumanoidRootPart.CFrame = CFrame.new(startpos)
+        print("t2")
+    end)
+    
+    ShopTeleport:NewButton("Shoe Shop","teleports to shoe shop",function()
+        game:GetService("ReplicatedStorage").Remote.Sell:FireServer()
+        local startpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        print("SP")
+        lp.HumanoidRootPart.CFrame = CFrame.new(95, 139, 181)
+        print("t1")
+        wait(0.1)
+        lp.HumanoidRootPart.CFrame = CFrame.new(startpos)
+        print("t2")
+    end)
+elseif game.PlaceId ~= 6961712970 then
+    if setclipboard then
+        setclipboard("https://www.roblox.com/games/6961712970/")
+        messagebox("Attempted to copy link of the correct game.", "Wrong game!", 0)
+    else
+        messagebox("Your exploit either doesn't support setclipboard or I'm stupid and messed up (I'm a new scripter). The correct game's link is https://www.roblox.com/games/6961712970/", "Wrong game!", 0)
+    end
+end
